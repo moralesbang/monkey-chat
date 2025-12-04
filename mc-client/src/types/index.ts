@@ -36,3 +36,23 @@ export interface SessionSummary {
   areasForImprovement: string[];
   overallFeedback: string;
 }
+
+export interface ResponseMessage {
+  prospectResponse: string;
+  phase: string;
+  mood: string;
+  keyTopics: string[];
+}
+
+export interface ConversationState {
+  sessionId: string;
+  scenario: Scenario;
+  messages: Message[];
+  phase: "opening" | "discovery" | "objection_handling" | "closing" | "ended";
+  prospectMood: string;
+  keyTopicsDiscussed: string[];
+  objectionsRaised: string[];
+  performanceNotes: string[];
+  startedAt: Date;
+  endedAt?: Date;
+}
