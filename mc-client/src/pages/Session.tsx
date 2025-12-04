@@ -22,13 +22,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { scenariosApi, sessionsApi } from "@/lib/api";
 import { queryKeys } from "@/lib/queryKeys";
 import type { Message, ResponseMessage, SessionSummary } from "@/types";
@@ -351,7 +345,9 @@ export default function Session() {
                 >
                   <div
                     className={`w-1.5 h-1.5 rounded-full ${
-                      sessionId ? "bg-green-600 dark:bg-green-400 animate-pulse" : "bg-amber-600 dark:bg-amber-400"
+                      sessionId
+                        ? "bg-green-600 dark:bg-green-400 animate-pulse"
+                        : "bg-amber-600 dark:bg-amber-400"
                     }`}
                   />
                   {sessionId ? "Active" : "Initializing"}
