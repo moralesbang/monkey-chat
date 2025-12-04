@@ -1,5 +1,10 @@
 import axios from "axios";
-import type { Scenario, SessionSummary } from "@/types";
+import type {
+  ConversationState,
+  ResponseMessage,
+  Scenario,
+  SessionSummary,
+} from "@/types";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
@@ -28,7 +33,10 @@ export const sessionsApi = {
     return response.data;
   },
 
-  sendMessage: async (sessionId: string, message: string) => {
+  sendMessage: async (
+    sessionId: string,
+    message: string
+  ): Promise<ResponseMessage> => {
     const response = await api.post(`/sessions/${sessionId}/message`, {
       message,
     });
@@ -40,7 +48,7 @@ export const sessionsApi = {
     return response.data;
   },
 
-  get: async (sessionId: string) => {
+  get: async (sessionId: string): Promise<ConversationState> => {
     const response = await api.get(`/sessions/${sessionId}`);
     return response.data;
   },
